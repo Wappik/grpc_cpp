@@ -1,0 +1,11 @@
+{
+    "server_settings": {
+        "grpc_host" : "0.0.0.0",
+        "grpc_port" : "51007"
+    },
+    "path_to_directory": "{workspaceFolder}/files/",
+    "log": {
+        "level" : "trace"
+    },
+    "max_client": 3
+}

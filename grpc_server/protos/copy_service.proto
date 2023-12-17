@@ -1,0 +1,37 @@
+syntax = "proto3";
+package copy_service;
+
+// The greeting service definition.
+service CopyService {
+  rpc Copy (stream CopyRequest) returns (stream CopyResponse) {}
+}
+
+message CopyRequest {
+  oneof copy_request {
+    string title = 1;
+    bytes body = 2;
+    EndFile end = 3;
+    ReadRequest read = 4;
+    StartCall start_call = 5;
+  }
+}
+
+message CopyResponse {
+  oneof copy_response {
+    ErrorMessage error_message = 1;
+    string message = 2;
+  }
+}
+
+message EndFile {
+}
+
+message ReadRequest {
+}
+
+message StartCall {
+}
+
+message ErrorMessage {
+  string message = 1;
+}

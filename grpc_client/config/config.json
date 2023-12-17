@@ -1,0 +1,11 @@
+{
+    "server_settings": {
+        "hosts" : ["0.0.0.0:51007", "0.0.0.0:51008", "0.0.0.0:51009", "0.0.0.0:51010"]
+    },
+    "path_to_directory": "{workspaceFolder}/files/archives/",
+    "file_name": "log.log",
+    "log": {
+        "level" : "trace"
+    },
+    "batch_size": 10000000
+}

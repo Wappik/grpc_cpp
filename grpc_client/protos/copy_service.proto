@@ -1,0 +1,50 @@
+syntax = "proto3";
+package copy_service;
+
+service CopyService {
+  rpc Copy (stream CopyRequest) returns (stream CopyResponse) {}
+}
+
+message CopyRequest {
+  oneof copy_request {
+    StartCall start_call = 1;
+    bytes body = 2;
+    EndFile end = 3;
+    ReadRequest read = 4;
+  }
+}
+
+message CopyResponse {
+  oneof copy_response {
+    ErrorType error_type = 1;
+    SuccessfullyRequest successfully_request = 2;
+    string message = 3;
+  }
+}
+
+message EndFile {
+}
+
+message ReadRequest {
+}
+
+message StartCall {
+  bytes title = 1;
+}
+
+message ErrorType {
+  oneof error_type {
+    InvalidRequestForm invalid_request_form = 1;
+    QueueIsFull queue_is_full = 2;
+  }
+  string message = 3;
+}
+
+message SuccessfullyRequest {
+}
+
+message InvalidRequestForm {
+}
+
+message QueueIsFull {
+}
